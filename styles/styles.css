@@ -19,6 +19,7 @@
   --color-grey-5: #2a2e35;
   --color-grey-6: #12181b;
   --br-sm-2: 14px;
+  --br-circle: 240px;
   --box-shadow-1: 0 3px 15px rgba(0, 0, 0, .3) ;
 }
 
@@ -60,47 +61,44 @@ section {
   grid-template-columns: repeat(2, 1fr);
   height: 100%;
 }
-.header-content .left-header {
+
+.left-header {
   display: flex;
   align-items: center;
   position: relative;
 }
-.header-content .left-header .image {
+
+.left-header__image {
   border-radius: var(--br-sm-2);
   height: 90%;
   width: 68%;
   margin-left: 4rem;
-  background-color: var(--color-black);
-}
-.header-content .left-header .image img {
-  border-radius: var(--br-sm-2);
-  width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.header-content .right-header {
+
+.right-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.header-content .right-header .name {
-  font-size: 1.5rem;
-}
-.header-content .right-header .name span {
-  color: var(--color-secondary);
-  font-size: 2.5rem;
-}
-.header-content .right-header p {
+.right-header p {
   margin: 1.5rem 0;
   line-height: 2rem;
 }
-.header-content .right-header__list {
-  display: flex;
-  gap: 2vw;
+
+.right-header__name {
+  font-size: 1.5rem;
+}
+.right-header__name span {
+  color: var(--color-secondary);
+  font-size: 2.5rem;
+  padding: 0 4px;
 }
 
 .right-header__list {
+  display: flex;
+  gap: 20px;
   list-style: none;
   padding: 0;
   text-align: center;
@@ -109,4 +107,61 @@ section {
 .right-header__list-item {
   display: inline;
   font-size: 2.6rem;
+}
+
+@media screen and (max-width: 768px) {
+  .header-content {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .left-header {
+    justify-content: center;
+    padding: 10px;
+  }
+  .left-header__image {
+    border-radius: var(--br-circle);
+    margin-left: 0;
+    width: 58vw;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+    max-width: 230px;
+    min-width: 200px;
+  }
+  .right-header {
+    text-align: center;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+  .right-header__list {
+    justify-content: center;
+  }
+  .right-header__name {
+    font-size: 1rem;
+  }
+  .right-header__name span {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 2560px) {
+  body {
+    font-size: 3rem;
+  }
+  .right-header__name {
+    font-size: 3.5rem;
+  }
+  .right-header__name span {
+    font-size: 4.5rem;
+  }
+  .right-header p {
+    margin: 1.5rem 0;
+    line-height: 4rem;
+  }
+  .right-header__list {
+    display: flex;
+    gap: 50px;
+  }
+  .right-header__list-item {
+    font-size: 5rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
